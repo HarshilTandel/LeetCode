@@ -3,11 +3,9 @@
  * @return {number}
  */
 var singleNumber = function(nums) {
-       nums.sort();
-    for(i=0;i<nums.length;i=i+2){
-        if(nums[i]!=nums[i+1]){
-            return nums[i];
-        }
+    let xor = 0;
+    for(i=0;i<nums.length;i++){
+         xor = xor ^ nums[i];
     }
-    return nums[i];
+    return xor;
 };
