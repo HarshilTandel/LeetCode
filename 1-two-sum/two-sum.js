@@ -4,22 +4,16 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
-    // Map to store value → its index
-    const indexMap = new Map();
+    const map = new Map();
 
     for (let i = 0; i < nums.length; i++) {
         const complement = target - nums[i];
-        
-        // If complement already seen, we have our answer
-        if (indexMap.has(complement)) {
-            return [ indexMap.get(complement), i ];
+        if (map.has(complement)) {
+            return [map.get(complement), i];
         }
-        
-        // Otherwise, record this number’s index
-        indexMap.set(nums[i], i);
+        map.set(nums[i], i);
     }
-    
-    // According to problem constraints, there is always exactly one solution,
-    // so we never actually reach here in valid inputs.
-    return [];
+
+    // Given constraints guarantee one valid answer
 };
+
